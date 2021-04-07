@@ -3,9 +3,11 @@ import * as React from 'react';
 import {View, Text, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import OpenFood from './component/OpenFood';
+
 import Input from './component/input';
 import Result from './component/result';
+import OpenFood from './page/OpenFood';
+import LoveCalculator from './page/LoveCalculator';
 
 function HomeScreen({navigation}) {
   return (
@@ -14,6 +16,10 @@ function HomeScreen({navigation}) {
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
+      />
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('love')}
       />
     </View>
   );
@@ -25,6 +31,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={OpenFood} />
+        <Stack.Screen name="love" component={LoveCalculator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

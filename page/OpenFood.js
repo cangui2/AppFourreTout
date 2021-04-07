@@ -20,24 +20,14 @@ import {
   FlatList,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Input from './input';
-import Result from './result';
-
-
+import Input from '../component/input';
+import Result from '../component/result';
 
 const OpenFood = props => {
   const [data, setData] = useState();
   const [condition, setCondition] = useState(false);
 
   const handleReceiveValue = value => {
-    console.log('value' + value);
     setCondition(false);
     fetch('https://world.openfoodfacts.org/api/v0/product/' + value + '.json')
       .then(response => response.json())
@@ -52,16 +42,11 @@ const OpenFood = props => {
   const check = value => {
     if (value.length > 12) {
       setCondition(true);
-      console.log('dans le if' + value);
-      console.log(
-        'https://world.openfoodfacts.org/api/v0/product/' + value + '.json',
-      );
     } else {
       setCondition(false);
     }
   };
-  console.log('data' + data);
-  console.log('value' + condition);
+
   return (
     <ScrollView>
       <Input onChangeInput={value => handleReceiveValue(value)} />
