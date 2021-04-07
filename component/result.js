@@ -33,28 +33,19 @@ const Result = props => {
     }
   };
 
-  const list = () => {
-    return Object.keys(props.data.product).forEach(element => {
-      return (
-        <View style={{margin: 10}}>
-          <Text>{element.product_name_en_imported}</Text>
-        </View>
-      );
-    });
-  };
-
-  if (props.data != null) {
+  if (props.value === true) {
     return (
-      <View>
+      <View style={styles.container}>
+        <Text>{props.data.product.product_name}</Text>
         <Image
           source={{
             uri: props.data.product.image_url,
           }}
           style={{width: 200, height: 200}}
         />
-        <Text>{props.data.product.product_name_en_imported}</Text>
+
         <Image source={imageListe()} style={{width: 300, height: 200}} />
-        {list()}
+        <Text>{props.data.product.ingredients_text}</Text>
       </View>
     );
   } else {
@@ -66,3 +57,8 @@ const Result = props => {
   }
 };
 export default Result;
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+  },
+});

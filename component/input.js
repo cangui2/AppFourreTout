@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -12,6 +11,7 @@ import {
   TextInput,
   FlatList,
 } from 'react-native';
+
 
 const Input = props => {
   const [image, setImage] = useState();
@@ -37,6 +37,7 @@ const Input = props => {
         }}
         onChangeText={props.onChangeInput}
       />
+
     </View>
   );
 };

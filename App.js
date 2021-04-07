@@ -1,60 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React, {useEffect, useState} from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import {View, Text, Button} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import OpenFood from './component/OpenFood';
 import Input from './component/input';
 import Result from './component/result';
 
-const App = props => {
-  const [data, setData] = useState(null);
-
-  const handleReceiveValue = value => {
-    console.log(value);
-    return fetch(
-      'https://world.openfoodfacts.org/api/v0/product/737628064502.json',
-    )
-      .then(response => response.json())
-      .then(json => {
-        setData(json);
-
-        // console.log(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
+function HomeScreen({navigation}) {
   return (
-    <ScrollView>
-      <Input onChangeInput={value => handleReceiveValue(value)} />
-      <Result data={data} />
-    </ScrollView>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
+const Stack = createStackNavigator();
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={OpenFood} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 export default App;
