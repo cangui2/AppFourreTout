@@ -8,6 +8,7 @@ import Input from './component/input';
 import Result from './component/result';
 import OpenFood from './page/OpenFood';
 import LoveCalculator from './page/LoveCalculator';
+import Covid from './page/Covid';
 
 function HomeScreen({navigation}) {
   return (
@@ -21,6 +22,10 @@ function HomeScreen({navigation}) {
         title="Go to Details"
         onPress={() => navigation.navigate('love')}
       />
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Covid Menu')}
+      />
     </View>
   );
 }
@@ -32,6 +37,7 @@ const App = () => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={OpenFood} />
         <Stack.Screen name="love" component={LoveCalculator} />
+        <Stack.Screen name="Covid Menu" component={Covid} />
       </Stack.Navigator>
     </NavigationContainer>
   );
