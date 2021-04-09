@@ -35,7 +35,7 @@ const Result = props => {
 
   if (props.value === true) {
     return (
-      <View style={styles.container}>
+      <View style={styles.contenair}>
         <Text>{props.data.product.product_name}</Text>
         <Image
           source={{
@@ -51,14 +51,19 @@ const Result = props => {
   } else {
     return (
       <View>
-        <Text>Dans le esle</Text>
+        <Text>Merci de mettre un code barre Ean 13</Text>
       </View>
     );
   }
 };
 export default Result;
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
+  image: {
+    width: 150,
+    height: 150,
+  },
+  contenair: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

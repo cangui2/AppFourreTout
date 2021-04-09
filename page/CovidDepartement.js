@@ -67,10 +67,14 @@ const CovidDepartement = () => {
   if (data === null) {
     return (
       <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={require('../Assets/images/covid.jpg')}
+        />
         <Text>
           {departement
-            ? `My favourite language is ${departement}`
-            : 'Please select a language'}
+            ? `Le departement choisi : ${departement}`
+            : 'Merci de selectionné un departement'}
         </Text>
         <RNPickerSelect
           onValueChange={value => searchByDepartement(value)}
@@ -183,10 +187,14 @@ const CovidDepartement = () => {
   } else {
     return (
       <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={require('../Assets/images/covid.jpg')}
+        />
         <Text style={styles.test}>
           {departement
-            ? `My favourite language is ${departement}`
-            : 'Please select a language'}
+            ? `Le departement choisi : ${departement}`
+            : 'Merci de selectionné un departement'}
         </Text>
         <RNPickerSelect
           style={styles.test}
@@ -315,5 +323,9 @@ const styles = StyleSheet.create({
   test: {
     color: 'red',
     borderWidth: 4,
+  },
+  image: {
+    width: 150,
+    height: 150,
   },
 });

@@ -58,17 +58,22 @@ const CovidGlobal = props => {
   };
   if (data === null) {
     return (
-      <View>
-        <Text>if</Text>
+      <View style={styles.contenair}>
+        <Image
+          style={styles.image}
+          source={require('../Assets/images/covid.jpg')}
+        />
 
-        <Button title="Press me" onPress={() => covidGlobalData()} />
+        <Button title="Voir" onPress={() => covidGlobalData()} />
       </View>
     );
   } else {
     return (
-      <View>
-        <Text>else</Text>
-        <Text>{data.deces}</Text>
+      <View style={styles.contenair}>
+        <Image
+          style={styles.image}
+          source={require('../Assets/images/covid.jpg')}
+        />
         {list()}
         <Button title="Actualiser" onPress={() => covidGlobalData()} />
       </View>
@@ -76,3 +81,13 @@ const CovidGlobal = props => {
   }
 };
 export default CovidGlobal;
+const styles = StyleSheet.create({
+  image: {
+    width: 150,
+    height: 150,
+  },
+  contenair: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

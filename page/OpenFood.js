@@ -55,3 +55,13 @@ const OpenFood = props => {
   );
 };
 export default OpenFood;
+const styles = StyleSheet.create({
+  image: {
+    width: 150,
+    height: 150,
+  },
+  contenair: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

@@ -12,34 +12,41 @@ import {
   FlatList,
 } from 'react-native';
 
-
 const Input = props => {
   const [image, setImage] = useState();
   const [a, setA] = useState(false);
 
   return (
-    <View>
-      <Text>Some text</Text>
+    <View style={styles.contenair}>
+      <Text>Yuka like</Text>
       <View>
-        <Text>Some more text</Text>
+        <Text>Base de donnée OpenFood</Text>
         <Image
-          source={{
-            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-          }}
-          style={{width: 200, height: 200}}
+          style={styles.image}
+          source={require('../Assets/images/food.png')}
         />
       </View>
       <TextInput
         style={{
           height: 40,
+          width: 300,
           borderColor: 'gray',
           borderWidth: 1,
         }}
         onChangeText={props.onChangeInput}
       />
-
     </View>
   );
 };
 
 export default Input;
+const styles = StyleSheet.create({
+  image: {
+    width: 150,
+    height: 150,
+  },
+  contenair: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
